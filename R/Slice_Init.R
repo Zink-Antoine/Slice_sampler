@@ -16,6 +16,12 @@
 #'
 #' @export
 #'
+#' @examples
+#' x<-50:550
+#' y<-dnorm(x,300,75)
+#' dev.off()
+#' Slice_Init(x,y)
+#'
 Slice_Init<-function(x,y){
 
   if (dev.cur()==1) plot(x,y) else points(x,y)#display data (x,y)

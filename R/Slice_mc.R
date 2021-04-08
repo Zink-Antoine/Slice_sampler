@@ -8,11 +8,12 @@
 #' Default is n_iter/2, that is, discarding the first half of the simulations.
 #'
 #' @return a list with the following elements
-#' @return **Elements Type  Description**
-#' @return $x1 [numeric]  the new point
-#' @return $L  [numeric] left boundary of the slice
-#' @return $R  [numeric] right boundary of the slice
-#'
+#'  \tabular{lll}{
+#'  **Element** \tab **Type** \tab **Description**\cr
+#'  `$x1` \tab `numeric` \tab the new point \cr
+#'  `$L` \tab `numeric` \tab the left boundary of the slice \cr
+#'  `$R` \tab `numeric` \tab the right boundary of the slice \cr
+#' }
 #' @export
 #'
 Slice_mc<-function(x,y,n_iter=1000,n_burnin=n_iter/2){
@@ -22,10 +23,10 @@ Slice_mc<-function(x,y,n_iter=1000,n_burnin=n_iter/2){
 	hist_y<-mcInit$hist_y
 	mcSlice<-alist(x1=0,L=0,R=0)
 	for (i in 1:n_iter){
-	run<-Slice_Run(foo_x,foo_y,hist_y,x)
-	mcSlice$x1[i]<-run[1]
-	mcSlice$L[i]<-run[2]
-	mcSlice$R[i]<-run[3]
+	run<-Slice_Run(mcSlice$x1,foo_x,foo_y,hist_y)
+	mcSlice$x1[i]<-run$x1
+	mcSlice$L[i]<-run$L
+	mcSlice$R[i]<-run$R
 	}
 	return(mcSlice)
 }
