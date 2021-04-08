@@ -24,3 +24,10 @@ $foo_x a function y(x)
 function displaying the measured data (x,y),
 and establishing the corresponding functions y(x) and p(y)
 }
+\examples{
+x<-50:550
+y<-dnorm(x,300,75)
+dev.off()
+Slice_Init(x,y)
+
+}

@@ -18,16 +18,13 @@ Default is n_iter/2, that is, discarding the first half of the simulations.}
 }
 \value{
 a list with the following elements
-
-**Elements Type  Description
-
-$x1\link{numeric} the new point
-
-$L \link{numeric} left boundary of the slice
-
-$R \link{numeric} right boundary of the slice
-
-$iter \link{numeric}the number of iteration
+\tabular{lll}{
+\strong{Element} \tab \strong{Type} \tab \strong{Description}\cr
+\verb{$x1} \tab \code{numeric} \tab the new point \cr
+\verb{$L} \tab \code{numeric} \tab the new left boundary of the slice \cr
+\verb{$R} \tab \code{numeric} \tab the new right boundary of the slice \cr
+\verb{$iter} \tab \code{numeric} \tab the number of iteration\cr
+}
 }
 \description{
 Slice_Cycle
