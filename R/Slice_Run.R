@@ -83,7 +83,8 @@ Slice_Run<-function(x0,foo_x,foo_y,hist_y,w=20,m=20){
 	}
 
 	Sol<-Stepout(foo_x,x0,y0,w,m) #stepping-out
-	lines(Sol[1:2],c(y0,y0),col=2)
+
+	lines(c(Sol$L,Sol$R),c(y0,y0),col=2)
 	Sol_hat<-Shrink(foo_x,x0,y0,Sol$L,Sol$R) #shrinkage
 	lines(c(Sol_hat$L,Sol_hat$R),c(y0,y0),col=6)
 
