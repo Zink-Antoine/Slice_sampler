@@ -1,6 +1,6 @@
-######### mc procedure plusieures courbes ###################
-
 #' Slice_Cycle
+#'
+#' Monte-Carlo procedure for multiple curves
 #'
 #' @inheritParams Slice_mc
 #'

@@ -19,7 +19,7 @@
 #' @examples
 #' x<-50:550
 #' y<-dnorm(x,300,75)
-#' dev.off()
+#' if (dev.cur()!=1)dev.off()
 #' Slice_Init(x,y)
 #'
 Slice_Init<-function(x,y){
@@ -33,3 +33,4 @@ Slice_Init<-function(x,y){
 
   return(list(hist_y=hist_y,foo_y=foo_y,foo_x=foo_x))
 }
+

@@ -5,7 +5,7 @@
 #'
 #' Cumulative distribution function for a function foo
 #'
-#' @param x [numeric] (**required**) a variable
+#' @param x [numeric] (**required**) variable's values
 #' @param foo [function] (**required**) the function to be applied to the variable x
 #'
 #' @return the cumulative distribution value of the function foo for the variable x

@@ -9,7 +9,7 @@
 #' @param y [numeric] (**required**) the vertical level defining the slice
 #' @param w [numeric] (**required**) estimate of the typical size of a slice
 #' @param m [numeric] (**required**) integer limiting the size of a slice to mw
-#' @param Rmx [numeric] (**required**) bound value to limit edge effects (added)
+#' @param Rmx [numeric] (**with default**) bound value to limit edge effects (added)
 #'
 #' @import stats
 #'
@@ -23,7 +23,7 @@
 #' @export
 #'
 #'
-Stepout<-function(foo,x0,y,w,m,Rmx=500){
+Stepout<-function(foo,x0,y,w,m,Rmx=w*m){
 
 	if(y>foo(x0)) return(print("x0 invalid"))
 
@@ -34,6 +34,7 @@ Stepout<-function(foo,x0,y,w,m,Rmx=500){
 	J<-floor(m*V)
 	K<-(m-1)-J
 	if (L<30){L<-30}
+	if (R>Rmx) {R<-Rmx}
 
 	while(J>0 && y<foo(L)){
 		L<-L-w
