@@ -29,10 +29,9 @@
 #' TL_curve <- get_RLum(model.output, recordType = "TL$", drop = FALSE)
 #' x<-TL_curve$data[,1]
 #' y<-TL_curve$data[,2]
-#' x0<-300
 #' dev.off()
 #' run0<-Slice_Init(x,y)
-#' Slice_Run(x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
+#' Slice_Run(run0$x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
 #'
 #' #multiples TL calculées avec RLumModel##########
 #' #call function "model_LuminescenceSignals", model = "Bailey2001"
@@ -69,13 +68,12 @@
 #'  y[,i]<-TL_curve.merged[i]$data[,2]
 #' }
 #'
-#' x0<-300
 #' run0<-Slice_Init(x[,1],y[,1])
-#' Slice_Run(x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
+#' Slice_Run(run0$x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
 #'
 
 
-Slice_Run<-function(x0,foo_x,foo_y,hist_y,w=50,m=10,Rmx=m*w){
+Slice_Run<-function(x0,foo_x,foo_y,hist_y,w=40,m=10,Rmx=m*w){
 
 	repeat{
 	y0<-Fn3(runif(1),hist_y$mids,foo_y)#random drawing of a y0 of the distribution p(y)
@@ -85,8 +83,9 @@ Slice_Run<-function(x0,foo_x,foo_y,hist_y,w=50,m=10,Rmx=m*w){
 	Sol<-Stepout(foo_x,x0,y0,w,m,Rmx) #stepping-out
 	lines(c(Sol$L,Sol$R),c(y0,y0),col=2)
 
-	Sol_hat<-Shrink(foo_x,x0,y0,Sol$L,Sol$R) #shrinkage
+	Sol_hat<-Shrink(foo_x,x0,y0,Sol$L,Sol$R,Rmx) #shrinkage
 	lines(c(Sol_hat$L,Sol_hat$R),c(y0,y0),col=6)
+	points(Sol_hat$x1,y0,pch=4)
 
 	return(c(Sol_hat,y0=y0))
 }

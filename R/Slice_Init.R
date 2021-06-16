@@ -7,6 +7,7 @@
 #' @param y [numeric] (**required**) the measured value for x
 #'
 #' @return a list with the following elements
+#' @return $x0 the initial point
 #' @return $hist_y a histogram of y density
 #' @return $foo_y a function p(y)
 #' @return $foo_x a function y(x)
@@ -31,6 +32,12 @@ Slice_Init<-function(x,y){
   hist_y<-hist(y,breaks=100,plot=FALSE) #drawing a curve (histogram) of y density
   foo_y<-approxfun(hist_y$mids,hist_y$density)  #transformation into function p(y)
 
-  return(list(hist_y=hist_y,foo_y=foo_y,foo_x=foo_x))
+  repeat{
+    q<-runif(1)
+    x0<-Fn3(q,x,foo_x)
+    if (foo_x(x0)>min(hist_y$mids)) break
+  }
+
+  return(list(x0=x0,hist_y=hist_y,foo_y=foo_y,foo_x=foo_x))
 }
 
