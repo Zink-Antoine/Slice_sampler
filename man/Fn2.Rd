@@ -9,7 +9,7 @@ Fn2(p, x, foo)
 \arguments{
 \item{p}{\link{numeric} (\strong{required}) probability}
 
-\item{x}{\link{numeric} (\strong{required}) a variable}
+\item{x}{\link{numeric} (\strong{required}) variable's values}
 
 \item{foo}{\link{function} (\strong{required}) the function to be applied to the variable x}
 }

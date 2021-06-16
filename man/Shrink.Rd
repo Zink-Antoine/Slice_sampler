@@ -4,7 +4,7 @@
 \alias{Shrink}
 \title{Shrink}
 \usage{
-Shrink(foo, x0, y0, L, R, m = 100, Rmx = 475, Lmin = 200)
+Shrink(foo, x0, y0, L, R, m = 100, Rmx = 475, Lmin = 20)
 }
 \arguments{
 \item{foo}{\link{function} (\strong{required}) function proportional to the density}

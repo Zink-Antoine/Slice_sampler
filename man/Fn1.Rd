@@ -7,7 +7,7 @@
 Fn1(x, foo)
 }
 \arguments{
-\item{x}{\link{numeric} (\strong{required}) a variable}
+\item{x}{\link{numeric} (\strong{required}) variable's values}
 
 \item{foo}{\link{function} (\strong{required}) the function to be applied to the variable x}
 }

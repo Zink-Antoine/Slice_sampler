@@ -4,7 +4,7 @@
 \alias{Slice_Run}
 \title{Slice_Run}
 \usage{
-Slice_Run(x0, foo_x, foo_y, hist_y, w = 20, m = 20)
+Slice_Run(x0, foo_x, foo_y, hist_y, w = 40, m = 10, Rmx = m * w)
 }
 \arguments{
 \item{x0}{\link{numeric} (\strong{required}) the current point}
@@ -18,6 +18,8 @@ Slice_Run(x0, foo_x, foo_y, hist_y, w = 20, m = 20)
 \item{w}{\link{numeric} (\strong{required}) estimate of the typical size of a slice}
 
 \item{m}{\link{numeric} (\strong{required}) integer limiting the size of a slice to mw}
+
+\item{Rmx}{\link{numeric} (\strong{with default}) bound value to limit edge effects (added)}
 }
 \value{
 a list with the following elements
@@ -39,10 +41,9 @@ data("ExampleData.ModelOutput", envir = environment())
 TL_curve <- get_RLum(model.output, recordType = "TL$", drop = FALSE)
 x<-TL_curve$data[,1]
 y<-TL_curve$data[,2]
-x0<-300
 dev.off()
 run0<-Slice_Init(x,y)
-Slice_Run(x0,run0$foo_x,run0$foo_y,run0$hist_y)
+Slice_Run(run0$x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
 
 #multiples TL calculÃ©es avec RLumModel##########
 #call function "model_LuminescenceSignals", model = "Bailey2001"
@@ -79,8 +80,7 @@ for (i in 1:n.irr){
  y[,i]<-TL_curve.merged[i]$data[,2]
 }
 
-x0<-300
 run0<-Slice_Init(x[,1],y[,1])
-Slice_Run(x0,run0$foo_x,run0$foo_y,run0$hist_y)
+Slice_Run(run0$x0,run0$foo_x,run0$foo_y,run0$hist_y,Rmx=max(x))
 
 }

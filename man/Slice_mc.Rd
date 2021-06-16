@@ -28,3 +28,15 @@ a list with the following elements
 \description{
 Monte-Carlo procedure
 }
+\examples{
+#TL example from RLumModel
+require(RLumModel)
+data("ExampleData.ModelOutput", envir = environment())
+TL_curve <- get_RLum(model.output, recordType = "TL$", drop = FALSE)
+x<-TL_curve$data[,1]
+y<-TL_curve$data[,2]
+if (dev.cur()!=1) dev.off()
+Slice_mc(x,y,n_iter=1000,n_burnin=500)
+
+
+}

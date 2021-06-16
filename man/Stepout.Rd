@@ -4,7 +4,7 @@
 \alias{Stepout}
 \title{Stepout}
 \usage{
-Stepout(foo, x0, y, w, m, Rmx = 500)
+Stepout(foo, x0, y, w, m, Rmx = w * m)
 }
 \arguments{
 \item{foo}{\link{function} (\strong{required}) function proportional to the density}
@@ -17,7 +17,7 @@ Stepout(foo, x0, y, w, m, Rmx = 500)
 
 \item{m}{\link{numeric} (\strong{required}) integer limiting the size of a slice to mw}
 
-\item{Rmx}{\link{numeric} (\strong{required}) bound value to limit edge effects (added)}
+\item{Rmx}{\link{numeric} (\strong{with default}) bound value to limit edge effects (added)}
 }
 \value{
 a list value

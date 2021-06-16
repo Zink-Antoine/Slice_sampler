@@ -14,6 +14,8 @@ Slice_Init(x, y)
 \value{
 a list with the following elements
 
+$x0 the initial point
+
 $hist_y a histogram of y density
 
 $foo_y a function p(y)
@@ -27,7 +29,7 @@ and establishing the corresponding functions y(x) and p(y)
 \examples{
 x<-50:550
 y<-dnorm(x,300,75)
-dev.off()
+if (dev.cur()!=1)dev.off()
 Slice_Init(x,y)
 
 }

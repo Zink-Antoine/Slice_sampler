@@ -9,7 +9,7 @@ Fn3(q, x, foo)
 \arguments{
 \item{q}{\link{numeric} (\strong{required}) quantile}
 
-\item{x}{\link{numeric} (\strong{required}) a variable}
+\item{x}{\link{numeric} (\strong{required}) variable's values}
 
 \item{foo}{\link{function} (\strong{required}) the function to be applied to the variable x}
 }
