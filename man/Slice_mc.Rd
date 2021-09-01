@@ -4,7 +4,7 @@
 \alias{Slice_mc}
 \title{Slice_mc}
 \usage{
-Slice_mc(x, y, n_iter = 1000, n_burnin = n_iter/2)
+Slice_mc(x, y, n_iter = 1000, n_burnin = n_iter/2, threshold = min(y[y > 0]))
 }
 \arguments{
 \item{x}{\link{numeric} (\strong{required}) a variable}
@@ -15,6 +15,9 @@ Slice_mc(x, y, n_iter = 1000, n_burnin = n_iter/2)
 
 \item{n_burnin}{\link{numeric} (\strong{with default}) length of burn in, i.e. number of iterations to discard at the beginning.
 Default is n_iter/2, that is, discarding the first half of the simulations.}
+
+\item{threshold}{\link{numeric} (\strong{with default}) measured point below or equal to the threshold are rejected.
+Default is the minimum measured value.}
 }
 \value{
 a list with the following elements
