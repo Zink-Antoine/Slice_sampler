@@ -77,6 +77,7 @@ Slice_Run<-function(x0,foo_x,foo_y,hist_y,w=40,m=10,Rmx=m*w){
 
 	repeat{
 	y0<-Fn3(runif(1),hist_y$mids,foo_y)#random drawing of a y0 of the distribution p(y)
+  #print(c(x0,foo_x(x0),y0,y0<foo_x(x0)))
 	if(y0<foo_x(x0)) break
 	}
 

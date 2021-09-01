@@ -35,6 +35,10 @@ Shrink<-function(foo,x0,y0,L,R,m=100,Rmx=475,Lmin=20){
 		if (y0<foo(x1)) break
 		if (x1<x0) {L_hat<-x1}
 		else {R_hat<-x1}
+	#	print(R_hat)
+	#	print(L_hat)
+	#	print(round(L_hat,2)==round(R_hat,2))
+    if(round(L_hat,2)==round(R_hat,2)) break
 	}
 
 return(list(x1=x1,L=L_hat,R=R_hat))
