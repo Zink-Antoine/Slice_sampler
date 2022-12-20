@@ -35,9 +35,11 @@ Slice_Init<-function(x,y){
   repeat{
     q<-runif(1)
     x0<-Fn3(q,x,foo_x)
-    if (foo_x(x0)>min(hist_y$mids)) break
+    if(x0>max(x)-1) {x0<-x0-1}
+    if (foo_x(x0)>min(hist_y$mids))break
   }
 
   return(list(x0=x0,hist_y=hist_y,foo_y=foo_y,foo_x=foo_x))
 }
+
 
